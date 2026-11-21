@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.routes.metals import router as metals_router
 
 app = FastAPI(
     title="Bullion & Stock Market Tracker",
@@ -6,6 +7,7 @@ app = FastAPI(
     version="0.1.0"
 )
 
+app.include_router(metals_router)
 
 @app.get("/")
 def home():
